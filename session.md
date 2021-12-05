@@ -26,3 +26,10 @@ public String showCount(HttpSession session, Model model) {
     return "showCount.jsp";
 }
 ```
+
+--------------------------------------------
+
+## Updating Session:
+```
+session.setAttribute("count", 0);
+```
