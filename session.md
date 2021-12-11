@@ -33,3 +33,18 @@ public String showCount(HttpSession session, Model model) {
 ```
 session.setAttribute("count", 0);
 ```
+
+--------------------------------------------
+
+## Check if session is null
+```
+if (session.getAttribute("count") == null) {
+    // Use setAttribute to initialize the count in session
+}
+else {
+    // increment the count by 1 using getAttribute and setAttribute
+}
+```
+
+--------------------------------------------
+
