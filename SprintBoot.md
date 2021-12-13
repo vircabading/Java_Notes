@@ -115,6 +115,11 @@ public class HomeController {
     <artifactId>jquery</artifactId>
     <version>3.6.0</version>
 </dependency>
+<!-- DEPENDENCIES FOR SPRING SECURITY FRAMEWORK -->
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
 ```
 ---------------------------------------------------
 
@@ -185,12 +190,8 @@ spring.mvc.hiddenmethod.filter.enabled=true
 //	STYLE CSS
 ///////////////////////////////////////////////////////////*/
 
-body {
-    background-color: black;
-}
-
-* {
-    color: white;
+.round {
+	border-radius: 20px;
 }
 ```
 ---------------------------------------------------
@@ -212,8 +213,6 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import com.vcabading.dojosandninjas.models.Dojo;
 
 ////////////////////////////////////////////////////////////////
 //	DOJO REPOSITORY

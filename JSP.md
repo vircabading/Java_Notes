@@ -12,9 +12,11 @@
 ## Form:Input Name
 ```
 <p class="form-group">
-    <form:label path="name">Expense name:</form:label>
-    <form:input class="form-control mb-3" path="name" />
-    <form:errors path="name" class="alert alert-danger mb-3" />
+    <form:label path="title">Book Title:</form:label>
+    <strong>
+        <form:errors path="title" class="alert text-danger" />
+    </strong>
+    <form:input class="form-control mb-3" path="title" />
 </p>
 ```
 
@@ -56,3 +58,72 @@
 ```
 
 -------------------------------------
+
+## Insert a Hidden: user_id used in joining tables
+```
+<!-- **** User Id **** -->
+<input type="hidden" path="user_id" value="${user_id}" />
+```
+
+=====================================================
+
+# Set Up Get All Table
+```
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="expense" items="${ expenses }">
+            <tr>
+                <td>${  }</td>
+            </tr>
+        </c:forEach>
+    </tbody>
+</table>
+```
+
+---------------------------------------------------
+
+## Table Column with link
+```
+<td><a href="/expenses/${ expense.id }">${ expense.name }</a></td>
+```
+
+----------------------------------------------------
+
+## Table Column Currency
+```
+<td>
+    <fmt:formatNumber value="${expense.amount}"
+                        type="currency" />
+</td>
+```
+
+----------------------------------------------------
+
+## Table Column Action Buttons
+```
+<td class="row">
+    <!-- **** Button that points to View ************ -->
+    <div class="col">
+    <button class="col btn btn-primary btn-sm round" 
+        onclick="window.location.href='/books/${ eachBook.id }';">View</button>
+    </div>
+    <!-- **** Button that points to Edit ************ -->
+    <div>
+    <button class="col btn btn-warning btn-sm round" 
+        onclick="window.location.href='/books/${ eachBook.id }/edit';">Edit</button>
+    </div>
+    <!-- **** Button that Deletes ************ -->
+    <form class="col"
+        action="/books/${ eachBook.id }/delete" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <!-- ### Converts method of form to DELETE ### -->
+        <button class="btn btn-danger btn-sm round">Delete</button>
+    </form>
+</td>
+```
+
