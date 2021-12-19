@@ -27,8 +27,20 @@
 <p class="form-group">
     <form:label path="amount">Amount in $</form:label>
     <form:input class="form-control mb-3" type="number" path="amount"
-        min="0.01" step="0.01" />
+        step="0.01" />
     <form:errors path="amount" class="alert alert-danger" />
+</p>
+```
+
+-------------------------------------
+## Form:Input Date
+```
+<p>
+    <form:label path="dueDate">Due Date:</form:label>
+    <strong> <form:errors path="dueDate"
+            class="alert text-danger" />
+    </strong>
+    <form:input class="form-control mb-3" type="date" path="dueDate" />
 </p>
 ```
 
@@ -62,7 +74,7 @@
 ## Insert a Hidden: user_id used in joining tables
 ```
 <!-- **** User Id **** -->
-<input type="hidden" path="user_id" value="${user_id}" />
+<form:hidden path="user" value="${user_id}" />
 ```
 
 =====================================================
@@ -104,6 +116,13 @@
 
 ----------------------------------------------------
 
+## Table Column Date
+```
+<td><fmt:formatDate value="${ eachProject.dueDate }" type="date"></td>
+```
+
+----------------------------------------------------
+
 ## Table Column Action Buttons
 ```
 <td class="row">
@@ -113,7 +132,13 @@
         onclick="window.location.href='/books/${ eachBook.id }';">View</button>
     </div>
     <!-- **** Button that points to Edit ************ -->
-    <div>
+    <form class="col"
+        action="/books/${ eachBook.id }/edt" method="post">
+        <!-- ### Converts method of form to PUT ### -->
+        <input type="hidden" name="_method" value="put">
+        <button class="btn btn-warning btn-sm round">Edit</button>
+    </form>
+
     <button class="col btn btn-warning btn-sm round" 
         onclick="window.location.href='/books/${ eachBook.id }/edit';">Edit</button>
     </div>

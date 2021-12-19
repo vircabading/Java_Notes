@@ -115,11 +115,6 @@ public class HomeController {
     <artifactId>jquery</artifactId>
     <version>3.6.0</version>
 </dependency>
-<!-- DEPENDENCIES FOR SPRING SECURITY FRAMEWORK -->
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-security</artifactId>
-</dependency>
 ```
 ---------------------------------------------------
 
